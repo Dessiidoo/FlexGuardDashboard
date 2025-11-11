@@ -77,6 +77,7 @@ with st.sidebar:
     
     st.subheader("📊 Comparative Analysis")
     enable_comparison = st.checkbox("Enable Time Period Comparison", value=False)
+    comparison_days = 7
     
     if enable_comparison:
         comparison_days = st.slider(
@@ -137,6 +138,10 @@ if uptime_records:
 else:
     uptime_data = np.random.uniform(90, 100, size=10).tolist()
     uptime_timestamps = list(range(1, 11))
+
+comp_uptime = []
+comp_uptime_data = []
+comp_uptime_timestamps = []
 
 if enable_comparison:
     comp_start = start_datetime - timedelta(days=comparison_days)
